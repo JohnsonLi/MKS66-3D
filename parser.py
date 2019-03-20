@@ -91,6 +91,14 @@ def parse_file( fname, edges, transform, screen, color ):
             add_box(edges, float(args[0]), float(args[1]), float(args[2]),
                            float(args[3]), float(args[4]), float(args[5]))
 
+        elif line == 'sphere':
+            add_sphere(edges, float(args[0]), float(args[1]), float(args[2]),
+                              float(args[3]), .15)
+
+        elif line == 'torus':
+            add_torus(edges, float(args[0]), float(args[1]), float(args[2]),
+                             float(args[3]), float(args[4]), .1)
+
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
@@ -127,5 +135,9 @@ def parse_file( fname, edges, transform, screen, color ):
                 display(screen)
             else:
                 save_extension(screen, args[0])
+
+        elif line == 'clear':
+            clear_screen(screen)
+            edges = []
 
         c+= 1
